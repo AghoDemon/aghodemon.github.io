@@ -713,6 +713,7 @@
                     addOutput('/social   - show all social connections', 'normal');
                     addOutput('/skills   - show tech stack', 'normal');
                     addOutput('/projects - show recent projects', 'normal');
+					addOutput('/rubika - show my rubika id', 'normal');
                     addOutput('/clear    - clear terminal', 'normal');
                     addOutput('/help     - show this help', 'normal');
                 } else if (cmd === '/skills') {
@@ -724,6 +725,8 @@
                     addOutput('🤖 Multi-Platform Bot System', 'highlight');
                     addOutput('🐳 Dockerized Backend Stack', 'highlight');
                     addOutput('⚡ CLI Tools & Automation', 'highlight');
+                } else if (cmd === '/rubika') {
+                    addOutput('@Demon1795', 'highlight');				
                 } else if (cmd === '/clear') {
                     terminalOutput.innerHTML = '';
                     addOutput('Terminal cleared.', 'dim');

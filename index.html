@@ -51,16 +51,19 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('background.png') center/cover no-repeat;
+            background:
+                radial-gradient(circle at 18% 15%, rgba(60, 90, 130, 0.35), transparent 45%),
+                radial-gradient(circle at 85% 20%, rgba(90, 60, 130, 0.25), transparent 45%),
+                radial-gradient(circle at 50% 100%, rgba(30, 50, 80, 0.4), transparent 55%),
+                linear-gradient(160deg, #0a0c12 0%, #10131c 45%, #0a0c12 100%);
             animation: floatBg 30s ease-in-out infinite alternate;
             z-index: 0;
-            opacity: 0.4;
             pointer-events: none;
         }
 
         @keyframes floatBg {
             0% { transform: scale(1) rotate(0deg); }
-            100% { transform: scale(1.1) rotate(3deg); }
+            100% { transform: scale(1.12) rotate(2deg); }
         }
 
         ::selection {
@@ -82,8 +85,7 @@
         .glass-wrapper {
             position: relative;
             z-index: 1;
-            width: 100%;
-            max-width: 450px;
+            width: min(94vw, 450px);
         }
 
         .glass-container {
@@ -91,12 +93,12 @@
             background: rgba(18, 24, 34, 0.7);
             backdrop-filter: blur(32px);
             -webkit-backdrop-filter: blur(32px);
-            border-radius: 24px;
-            padding: 32px 28px 34px;
+            border-radius: clamp(16px, 4vw, 24px);
+            padding: clamp(20px, 6vw, 32px) clamp(16px, 5vw, 28px) clamp(22px, 6vw, 34px);
             border: 1px solid rgba(255, 255, 255, 0.06);
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.04);
             overflow: visible;
-            aspect-ratio: 450 / 880;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -114,7 +116,7 @@
             opacity: 0.85;
             z-index: -1;
             pointer-events: none;
-            border-radius: 28px;
+            border-radius: clamp(18px, 4.5vw, 28px);
             animation: pulseBorder 4s ease-in-out infinite alternate;
         }
 
@@ -138,21 +140,24 @@
 
         .profile-section {
             text-align: center;
-            margin-bottom: 22px;
+            margin-bottom: clamp(16px, 5vw, 22px);
+            margin-top: clamp(10px, 3vw, 16px);
             position: relative;
             z-index: 1;
         }
 
         .avatar-container {
+            --avatar-size: clamp(64px, 18vw, 80px);
             position: relative;
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 16px;
+            width: var(--avatar-size);
+            height: var(--avatar-size);
+            margin: 0 auto clamp(14px, 4vw, 18px);
+            overflow: visible;
         }
 
         .avatar-ring {
-            width: 80px;
-            height: 80px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             background: linear-gradient(135deg, #2a3444, #1a222e);
             padding: 3px;
@@ -172,21 +177,20 @@
 
         .avatar-glow {
             position: absolute;
-            top: -6px;
-            left: -6px;
-            width: 92px;
-            height: 92px;
-            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            width: calc(var(--avatar-size) * 1.3);
+            height: calc(var(--avatar-size) * 1.3);
+            transform: translate(-50%, -50%);
             pointer-events: none;
-            z-index: 0;
-            opacity: 0.6;
-            mix-blend-mode: screen;
-            animation: glowPulse 3s ease-in-out infinite alternate;
+            z-index: 2;
+            opacity: 1;
+            animation: decoFloat 3s ease-in-out infinite alternate;
         }
 
-        @keyframes glowPulse {
-            0% { opacity: 0.5; transform: scale(0.98); }
-            100% { opacity: 0.7; transform: scale(1.02); }
+        @keyframes decoFloat {
+            0% { transform: translate(-50%, -50%) scale(0.98); }
+            100% { transform: translate(-50%, -50%) scale(1.03); }
         }
 
         .avatar-glow img {
@@ -194,12 +198,10 @@
             height: 100%;
             display: block;
             object-fit: contain;
-            border-radius: 50%;
-            opacity: 1;
         }
 
         .profile-name {
-            font-size: 28px;
+            font-size: clamp(20px, 6.5vw, 28px);
             font-weight: 700;
             color: #ece8e0;
             letter-spacing: -0.3px;
@@ -212,7 +214,7 @@
         }
 
         .profile-badge img {
-            height: 26px;
+            height: clamp(20px, 5.5vw, 26px);
             width: auto;
             border-radius: 6px;
         }
@@ -221,9 +223,9 @@
             display: inline-block;
             background: rgba(26, 34, 46, 0.7);
             border: 1px solid rgba(42, 52, 68, 0.5);
-            padding: 4px 22px;
+            padding: clamp(3px, 1vw, 4px) clamp(14px, 5vw, 22px);
             border-radius: 30px;
-            font-size: 11px;
+            font-size: clamp(10px, 2.8vw, 11px);
             font-weight: 500;
             color: #a0b0be;
             letter-spacing: 0.5px;
@@ -234,7 +236,7 @@
         .divider {
             height: 1px;
             background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.06), transparent);
-            margin: 18px 0 22px;
+            margin: clamp(14px, 4vw, 18px) 0 clamp(16px, 5vw, 22px);
             position: relative;
             z-index: 1;
         }
@@ -242,7 +244,7 @@
         .social-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            gap: clamp(6px, 2.2vw, 10px);
             position: relative;
             z-index: 1;
         }
@@ -250,8 +252,8 @@
         .social-item {
             background: rgba(18, 24, 34, 0.5);
             border: 1px solid rgba(42, 52, 68, 0.3);
-            border-radius: 16px;
-            padding: 16px 6px;
+            border-radius: clamp(12px, 3.5vw, 16px);
+            padding: clamp(10px, 3.5vw, 16px) clamp(3px, 1.5vw, 6px);
             text-align: center;
             text-decoration: none;
             color: #b0c0ce;
@@ -261,6 +263,7 @@
             align-items: center;
             gap: 6px;
             backdrop-filter: blur(4px);
+            min-width: 0;
         }
 
         .social-item:hover {
@@ -271,21 +274,22 @@
         }
 
         .social-item .social-icon {
-            width: 34px;
-            height: 34px;
+            width: clamp(24px, 7.5vw, 34px);
+            height: clamp(24px, 7.5vw, 34px);
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .social-item .social-icon svg {
-            width: 30px;
-            height: 30px;
+            width: clamp(20px, 6.5vw, 30px);
+            height: clamp(20px, 6.5vw, 30px);
             fill: currentColor;
         }
 
         .social-item .social-label {
-            font-size: 8px;
+            font-size: clamp(7px, 2.2vw, 8px);
             font-weight: 500;
             color: #6a7a8a;
             letter-spacing: 0.3px;
@@ -295,8 +299,8 @@
         .footer-note {
             text-align: center;
             color: #3a4a5a;
-            font-size: 9px;
-            padding-top: 20px;
+            font-size: clamp(8px, 2vw, 9px);
+            padding-top: clamp(14px, 4vw, 20px);
             letter-spacing: 1.5px;
             font-weight: 300;
             margin-top: 6px;
@@ -305,72 +309,17 @@
             z-index: 1;
         }
 
-        @media (max-width: 500px) {
-            .glass-wrapper {
-                max-width: 100%;
-                padding: 0 4px;
-            }
-
-            .glass-container {
-                padding: 24px 18px 26px;
-                border-radius: 20px;
-                aspect-ratio: auto;
-                min-height: 600px;
-            }
-
-            .glass-container::before {
-                top: -3px;
-                left: -3px;
-                right: -3px;
-                bottom: -3px;
-                border-radius: 23px;
-            }
-
-            .profile-name {
-                font-size: 24px;
-            }
-
+        @media (max-width: 340px) {
             .social-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 8px;
-            }
-
-            .social-item {
-                padding: 14px 4px;
-            }
-
-            .social-item .social-icon {
-                width: 28px;
-                height: 28px;
-            }
-
-            .social-item .social-icon svg {
-                width: 24px;
-                height: 24px;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (max-width: 380px) {
-            .glass-container {
-                padding: 18px 14px 20px;
-                border-radius: 16px;
-                min-height: 520px;
-            }
-
-            .glass-container::before {
-                top: -2px;
-                left: -2px;
-                right: -2px;
-                bottom: -2px;
-                border-radius: 18px;
-            }
-
-            .profile-name {
-                font-size: 20px;
-            }
-
-            .social-grid {
-                grid-template-columns: repeat(2, 1fr);
+        @media (max-height: 620px) and (max-width: 500px) {
+            body {
+                align-items: flex-start;
+                padding-top: 20px;
+                padding-bottom: 20px;
             }
         }
     </style>

@@ -10,14 +10,14 @@
     <meta name="twitter:image" content="https://aghodemon.github.io/favicon.ico" />
     <link rel="apple-touch-icon" href="favicon.ico" />
     <title>TheNyxonis | Senior DevOPS & Full Stack Developer</title>
-    <meta name="description" content="Demon1795 - Senior DevOPS engineer specializing in Java, Node.js, Docker, Python. Minecraft plugins, bots, and backend development." />
-    <meta name="keywords" content="Demon1795, TheNyxonis, Nyxonis, DevOPS, Java, Node.js, Docker, Python, Minecraft plugins, backend developer" />
-    <meta property="og:title" content="Demon1795 | Senior DevOPS" />
-    <meta property="og:description" content="Full stack developer & DevOPS engineer. Check out my projects and tech stack." />
+    <meta name="description" content="Senior DevOPS engineer specializing in Java, Node.js, Docker, Python. Minecraft plugins, bots, and backend development." />
+    <meta name="keywords" content="TheNyxonis, Nyxonis, DevOPS, Java, Node.js, Docker, Python, Minecraft, backend" />
+    <meta property="og:title" content="TheNyxonis | Senior DevOPS" />
+    <meta property="og:description" content="Full stack developer & DevOPS engineer." />
     <meta property="og:url" content="https://aghodemon.github.io" />
     <meta name="robots" content="index, follow" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Demon1795 | Senior DevOPS" />
+    <meta name="twitter:title" content="TheNyxonis | Senior DevOPS" />
     <meta name="twitter:description" content="Senior DevOPS engineer - Java, Node.js, Docker, Python" />
     <link rel="canonical" href="https://aghodemon.github.io" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -36,11 +36,31 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             min-height: 100vh;
-            padding: 20px 16px 40px;
-            max-width: 760px;
-            margin: 0 auto;
-            font-weight: 300;
-            -webkit-font-smoothing: antialiased;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('background.png') center/cover no-repeat;
+            animation: floatBg 30s ease-in-out infinite alternate;
+            z-index: 0;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        @keyframes floatBg {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1.1) rotate(3deg); }
         }
 
         ::selection {
@@ -59,67 +79,63 @@
             border-radius: 4px;
         }
 
-        .grid-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.6fr;
-            gap: 24px;
-            margin-bottom: 28px;
-        }
-
-        .left-col {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .right-col {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .banner-wrap {
+        .glass-container {
+            position: relative;
+            z-index: 1;
             width: 100%;
-            border-radius: 16px;
+            max-width: 480px;
+            padding: 30px 24px;
+            background: rgba(18, 24, 34, 0.55);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
             overflow: hidden;
-            background: #141a24;
-            border: 1px solid #242c3a;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-            grid-column: 1 / -1;
         }
 
-        .banner-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            aspect-ratio: 16 / 4.5;
-            object-fit: cover;
-            background: #1a222e;
+        .glass-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: url('effect.png') center/cover no-repeat;
+            opacity: 0.12;
+            z-index: 0;
+            pointer-events: none;
+            border-radius: 28px;
+            filter: blur(2px);
         }
 
-        .profile-card {
-            background: #121822;
-            border: 1px solid #242c3a;
-            border-radius: 16px;
-            padding: 22px 20px;
+        .glass-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-section {
             text-align: center;
-            position: relative;
+            margin-bottom: 32px;
         }
 
-        .avatar-wrapper {
+        .avatar-container {
             position: relative;
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 12px;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 16px;
         }
 
         .avatar-ring {
-            width: 80px;
-            height: 80px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: #2a3444;
-            padding: 3px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, #2a3444, #1a222e);
+            padding: 4px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            position: relative;
         }
 
         .avatar-ring img {
@@ -131,574 +147,369 @@
             background: #0a0c12;
         }
 
-        .animated-overlay {
+        .avatar-glow {
             position: absolute;
-            top: -6px;
-            left: -6px;
-            width: 92px;
-            height: 92px;
+            top: -8px;
+            left: -8px;
+            width: 136px;
+            height: 136px;
             border-radius: 50%;
             pointer-events: none;
-            z-index: 3;
+            z-index: 2;
+            opacity: 0.5;
             mix-blend-mode: screen;
-            opacity: 0.6;
         }
 
-        .animated-overlay img {
+        .avatar-glow img {
             width: 100%;
             height: 100%;
             display: block;
             object-fit: contain;
             border-radius: 50%;
+            opacity: 0.7;
         }
 
-        .profile-card h2 {
-            font-size: 22px;
+        .profile-name {
+            font-size: 26px;
             font-weight: 700;
             color: #ece8e0;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
         }
 
         .profile-badge {
             display: inline-block;
-            margin: 6px 0 4px;
+            margin: 6px 0 10px;
         }
 
         .profile-badge img {
-            height: 20px;
+            height: 24px;
             width: auto;
-            border-radius: 4px;
+            border-radius: 6px;
         }
 
-        .profile-card .role-tag {
+        .role-tag {
             display: inline-block;
-            background: #1a222e;
-            border: 1px solid #2a3444;
-            padding: 3px 16px;
+            background: rgba(26, 34, 46, 0.7);
+            border: 1px solid rgba(42, 52, 68, 0.5);
+            padding: 4px 20px;
             border-radius: 30px;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 500;
             color: #a0b0be;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            margin-top: 4px;
+            backdrop-filter: blur(4px);
         }
 
-        .profile-card .bio {
-            font-size: 12px;
+        .bio-text {
+            font-size: 13px;
             color: #8898aa;
             margin-top: 12px;
             line-height: 1.7;
             font-weight: 300;
         }
 
-        .profile-card .bio em {
+        .bio-text em {
             color: #d0d8e2;
             font-style: normal;
             font-weight: 500;
         }
 
-        .stat-grid {
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.06), transparent);
+            margin: 24px 0 28px;
+        }
+
+        .social-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 8px;
         }
 
-        .stat-item {
-            background: #121822;
-            border: 1px solid #242c3a;
-            border-radius: 12px;
-            padding: 14px 10px;
+        .social-item {
+            background: rgba(18, 24, 34, 0.5);
+            border: 1px solid rgba(42, 52, 68, 0.3);
+            border-radius: 16px;
+            padding: 16px 8px;
             text-align: center;
+            text-decoration: none;
+            color: #b0c0ce;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(4px);
         }
 
-        .stat-item .number {
+        .social-item:hover {
+            background: rgba(26, 34, 46, 0.7);
+            border-color: rgba(90, 106, 122, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-item .social-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-item .social-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+
+        .social-item .social-label {
+            font-size: 9px;
+            font-weight: 500;
+            color: #6a7a8a;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        .social-item .social-username {
+            font-size: 10px;
+            font-weight: 400;
+            color: #a0b0be;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .stat-box {
+            background: rgba(18, 24, 34, 0.4);
+            border: 1px solid rgba(42, 52, 68, 0.25);
+            border-radius: 14px;
+            padding: 14px 8px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .stat-box .stat-number {
             font-size: 20px;
             font-weight: 700;
             color: #ece8e0;
             font-family: 'JetBrains Mono', monospace;
         }
 
-        .stat-item .label {
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #6a7a8a;
-            margin-top: 2px;
-        }
-
-        .project-item {
-            background: #121822;
-            border: 1px solid #242c3a;
-            border-radius: 14px;
-            padding: 16px 18px;
-            transition: all 0.2s ease;
-        }
-
-        .project-item:hover {
-            border-color: #4a5a6a;
-        }
-
-        .project-item h3 {
-            font-size: 14px;
-            font-weight: 600;
-            color: #e4e8ee;
-            margin-bottom: 2px;
-        }
-
-        .project-item p {
-            font-size: 11px;
-            color: #8a9aaa;
-            margin-bottom: 6px;
-            font-weight: 300;
-            line-height: 1.5;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .project-tags span {
-            background: #1a222e;
-            border: 1px solid #2a3444;
-            padding: 1px 12px;
-            border-radius: 30px;
+        .stat-box .stat-label {
             font-size: 8px;
-            font-weight: 500;
-            color: #8a9aaa;
-            letter-spacing: 0.3px;
             text-transform: uppercase;
-        }
-
-        .terminal-wrap {
-            background: #0d111a;
-            border: 1px solid #242c3a;
-            border-radius: 16px;
-            overflow: hidden;
-            margin-top: 8px;
-            grid-column: 1 / -1;
-        }
-
-        .terminal-header {
-            background: #141a24;
-            padding: 10px 16px;
-            border-bottom: 1px solid #242c3a;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .terminal-dots {
-            display: flex;
-            gap: 6px;
-        }
-
-        .terminal-dots span {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            display: block;
-        }
-
-        .terminal-dots .red {
-            background: #ff5f56;
-        }
-        .terminal-dots .yellow {
-            background: #ffbd2e;
-        }
-        .terminal-dots .green {
-            background: #27c93f;
-        }
-
-        .terminal-title {
-            font-size: 10px;
-            color: #6a7a8a;
-            font-family: 'JetBrains Mono', monospace;
-            letter-spacing: 0.5px;
-            margin-left: 6px;
-        }
-
-        .terminal-body {
-            padding: 16px 18px 18px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            min-height: 80px;
-        }
-
-        .terminal-output {
-            color: #b0c0ce;
-            margin-bottom: 10px;
-            line-height: 1.7;
-            white-space: pre-wrap;
-            word-break: break-word;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        .terminal-output .highlight {
-            color: #e8e0d0;
-            font-weight: 500;
-        }
-
-        .terminal-output .dim {
+            letter-spacing: 1.2px;
             color: #5a6a7a;
-        }
-
-        .terminal-input-line {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .terminal-prompt {
-            color: #6a9a7a;
-            font-weight: 500;
-            font-size: 13px;
-        }
-
-        .terminal-input {
-            background: transparent;
-            border: none;
-            outline: none;
-            color: #d0d8e2;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            flex: 1;
-            caret-color: #8aaa9a;
-        }
-
-        .terminal-input::placeholder {
-            color: #3a4a5a;
-            font-size: 11px;
-        }
-
-        .links-row {
-            display: flex;
-            gap: 12px;
-            grid-column: 1 / -1;
-        }
-
-        .link-card {
-            flex: 1;
-            background: #121822;
-            border: 1px solid #242c3a;
-            border-radius: 14px;
-            padding: 14px 12px;
-            text-align: center;
-            text-decoration: none;
-            color: #b0c0ce;
-            font-size: 11px;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .link-card:hover {
-            border-color: #5a6a7a;
-            background: #1a222e;
-            color: #e4e8ee;
-        }
-
-        .link-card .link-icon {
-            font-size: 22px;
-            display: block;
-            margin-bottom: 2px;
+            margin-top: 2px;
+            font-weight: 400;
         }
 
         .footer-note {
             text-align: center;
             color: #3a4a5a;
             font-size: 9px;
-            padding-top: 28px;
-            letter-spacing: 2px;
+            padding-top: 24px;
+            letter-spacing: 1.5px;
             font-weight: 300;
-            border-top: 1px solid #1a222e;
-            margin-top: 6px;
-            grid-column: 1 / -1;
+            margin-top: 8px;
+            border-top: 1px solid rgba(26, 34, 46, 0.4);
         }
 
-        @media (max-width: 620px) {
-            .grid-layout {
-                grid-template-columns: 1fr;
-                gap: 18px;
+        @media (max-width: 500px) {
+            .glass-container {
+                padding: 20px 16px;
+                border-radius: 20px;
             }
 
-            .left-col,
-            .right-col {
-                gap: 16px;
-            }
-
-            .stat-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .banner-img {
-                aspect-ratio: 16 / 5;
-            }
-        }
-
-        @media (max-width: 400px) {
-            body {
-                padding: 12px 10px 28px;
-            }
-
-            .profile-card h2 {
-                font-size: 18px;
-            }
-
-            .avatar-wrapper {
-                width: 64px;
-                height: 64px;
+            .avatar-container {
+                width: 100px;
+                height: 100px;
             }
 
             .avatar-ring {
-                width: 64px;
-                height: 64px;
+                width: 100px;
+                height: 100px;
             }
 
-            .animated-overlay {
-                width: 76px;
-                height: 76px;
-                top: -6px;
-                left: -6px;
+            .avatar-glow {
+                width: 116px;
+                height: 116px;
+                top: -8px;
+                left: -8px;
             }
 
-            .links-row {
-                flex-direction: column;
+            .profile-name {
+                font-size: 22px;
+            }
+
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .social-item {
+                padding: 14px 8px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .glass-container {
+                padding: 16px 12px;
+            }
+
+            .avatar-container {
+                width: 80px;
+                height: 80px;
+            }
+
+            .avatar-ring {
+                width: 80px;
+                height: 80px;
+            }
+
+            .avatar-glow {
+                width: 96px;
+                height: 96px;
+                top: -8px;
+                left: -8px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="grid-layout">
+    <div class="glass-container">
+        <div class="glass-content">
 
-        <div class="banner-wrap">
-            <img class="banner-img" src="https://placehold.co/1200x500/black/gray?text=TheNyxonis&font=raleway" alt="banner" />
-        </div>
-
-        <div class="left-col">
-
-            <div class="profile-card">
-                <div class="avatar-wrapper">
+            <div class="profile-section">
+                <div class="avatar-container">
                     <div class="avatar-ring">
                         <img src="profile.png" alt="profile" />
                     </div>
-                    <div class="animated-overlay">
+                    <div class="avatar-glow">
                         <img src="animated.png" alt="animated" />
                     </div>
                 </div>
-                <h2>TheNyxonis</h2>
+                <h1 class="profile-name">TheNyxonis</h1>
                 <div class="profile-badge">
                     <img src="profilebadge.png" alt="badge" />
                 </div>
-                <span class="role-tag">Senior · DevOPS</span>
-                <div class="bio">
+                <div class="role-tag">Senior DevOPS</div>
+                <div class="bio-text">
                     <em>Java · Node · Docker · Python</em><br />
-                    Minecraft plugins · Bots · Backend
+                    Minecraft · Bots · Backend
                 </div>
             </div>
 
-            <div class="stat-grid">
-                <div class="stat-item">
-                    <div class="number">12+</div>
-                    <div class="label">projects</div>
+            <div class="divider"></div>
+
+            <div class="social-grid">
+                <a href="https://github.com/aghodemon" class="social-item" target="_blank" rel="noopener">
+                    <span class="social-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    </span>
+                    <span class="social-label">GitHub</span>
+                    <span class="social-username">aghodemon</span>
+                </a>
+
+                <a href="https://discord.gg/" class="social-item" target="_blank" rel="noopener">
+                    <span class="social-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.684 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    </span>
+                    <span class="social-label">Discord</span>
+                    <span class="social-username">@nyxonis</span>
+                </a>
+
+                <a href="https://t.me/nyxonis" class="social-item" target="_blank" rel="noopener">
+                    <span class="social-icon">
+                        <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm5.83 7.55l-2.35 9.159c-.128.572-.48.746-1.02.466l-3.252-2.373-1.56 1.507c-.143.146-.313.158-.393.158-.08 0-.276-.043-.367-.154l-2.184-2.684-3.863-1.487c-.642-.252-.642-.679.107-.958l13.991-5.078c.535-.192.997.05.767.807z"/></svg>
+                    </span>
+                    <span class="social-label">Telegram</span>
+                    <span class="social-username">@nyxonis</span>
+                </a>
+
+                <a href="https://aghodemon.github.io" class="social-item" target="_blank" rel="noopener">
+                    <span class="social-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    </span>
+                    <span class="social-label">Website</span>
+                    <span class="social-username">nyxonis.dev</span>
+                </a>
+            </div>
+
+            <div class="social-grid" style="margin-top: 4px;">
+                <a href="#" class="social-item" target="_blank" rel="noopener">
+                    <span class="social-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.113.793-.26.793-.577 0-.285-.01-1.04-.015-2.1-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.335-5.467-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.004 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.604-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .318.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                    </span>
+                    <span class="social-label">GitLab</span>
+                    <span class="social-username">nyxonis</span>
+                </a>
+
+                <a href="#" class="social-item" target="_blank" rel="noopener">
+                    <span class="social-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.08 20.31H3.55V8.97h3.53v11.34zM5.31 7.47c-1.13 0-2.05-.92-2.05-2.05s.92-2.05 2.05-2.05 2.05.92 2.05 2.05-.92 2.05-2.05 2.05zm15.18 12.84h-3.53v-5.68c0-1.35-.03-3.09-1.88-3.09s-2.17 1.47-2.17 2.99v5.78h-3.53V8.97h3.39v1.55h.05c.47-.89 1.62-1.83 3.34-1.83 3.57 0 4.23 2.35 4.23 5.41v6.21z"/></svg>
+                    </span>
+                    <span class="social-label">LinkedIn</span>
+                    <span class="social-username">nyxonis</span>
+                </a>
+
+                <a href="#" class="social-item" target="_blank" rel="noopener">
+                    <span class="social-icon">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </span>
+                    <span class="social-label">Twitter</span>
+                    <span class="social-username">@nyxonis</span>
+                </a>
+
+                <a href="#" class="social-item" target="_blank" rel="noopener">
+                    <span class="social-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12S18.627 0 12 0zm-2 17.5l-5.5-5.5 1.5-1.5 4 4 8-8 1.5 1.5-9.5 9.5z"/></svg>
+                    </span>
+                    <span class="social-label">Rubika</span>
+                    <span class="social-username">@nyxonis</span>
+                </a>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-label">Projects</div>
                 </div>
-                <div class="stat-item">
-                    <div class="number">7</div>
-                    <div class="label">tech stack</div>
+                <div class="stat-box">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Stack</div>
                 </div>
-                <div class="stat-item">
-                    <div class="number">8</div>
-                    <div class="label">languages</div>
+                <div class="stat-box">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Languages</div>
                 </div>
-                <div class="stat-item">
-                    <div class="number">∞</div>
-                    <div class="label">curiosity</div>
+                <div class="stat-box">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Curiosity</div>
                 </div>
+            </div>
+
+            <div class="footer-note">
+                TheNyxonis &middot; 2.0.6 &middot; 2026
             </div>
 
         </div>
-
-        <div class="right-col">
-
-            <div class="project-item">
-                <h3>Minecraft Plugin Suite</h3>
-                <p>Custom plugins for survival, mini-games and server management.</p>
-                <div class="project-tags">
-                    <span>Java</span>
-                    <span>Spigot</span>
-                    <span>Paper</span>
-                </div>
-            </div>
-
-            <div class="project-item">
-                <h3>Multi-Platform Bot System</h3>
-                <p>Unified bot framework for Discord, Telegram and custom APIs.</p>
-                <div class="project-tags">
-                    <span>Node.js</span>
-                    <span>Python</span>
-                    <span>WebSocket</span>
-                    <span>PHP</span>
-                </div>
-            </div>
-
-            <div class="project-item">
-                <h3>Dockerized Backend Stack</h3>
-                <p>Microservices with Node, Python and Postgres orchestrated.</p>
-                <div class="project-tags">
-                    <span>Docker</span>
-                    <span>Node</span>
-                    <span>Python</span>
-                </div>
-            </div>
-
-            <div class="project-item">
-                <h3>CLI Tools & Automation</h3>
-                <p>Bash scripts and Python utilities for devops and automation.</p>
-                <div class="project-tags">
-                    <span>Python</span>
-                    <span>Bash</span>
-                    <span>Linux</span>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="terminal-wrap">
-            <div class="terminal-header">
-                <div class="terminal-dots">
-                    <span class="red"></span>
-                    <span class="yellow"></span>
-                    <span class="green"></span>
-                </div>
-                <span class="terminal-title">root@terminal ~</span>
-            </div>
-            <div class="terminal-body">
-                <div class="terminal-output" id="terminalOutput">
-                    <span class="dim">> </span>Welcome, User.<br />
-                    <span class="dim">> </span>Type <span class="highlight">/social</span> to see connections<br />
-                    <span class="dim">> </span>or <span class="highlight">/help</span> for commands.
-                </div>
-                <div class="terminal-input-line">
-                    <span class="terminal-prompt">$</span>
-                    <input type="text" class="terminal-input" id="terminalInput" placeholder="enter command..." autofocus />
-                </div>
-            </div>
-        </div>
-
-        <div class="links-row">
-            <a href="https://github.com/aghodemon" class="link-card">
-                <span class="link-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b0c0ce" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                </span>
-                GitHub
-            </a>
-            <a href="https://discord.gg/" class="link-card">
-                <span class="link-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b0c0ce" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                </span>
-                Discord
-            </a>
-            <a href="mailto:idemon1795@proton.me" class="link-card">
-                <span class="link-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b0c0ce" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
-                </span>
-                Email
-            </a>
-            <a href="https://aghodemon.github.io" class="link-card">
-                <span class="link-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b0c0ce" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                </span>
-                Website
-            </a>
-        </div>
-
-        <div class="footer-note">
-            TheNyxonis Profile &middot; Version 2.0.6 &middot; 2026
-        </div>
-
     </div>
 
-    <script>
-        const terminalInput = document.getElementById('terminalInput');
-        const terminalOutput = document.getElementById('terminalOutput');
-
-        function addOutput(text, type = 'normal') {
-            const line = document.createElement('div');
-            if (type === 'highlight') {
-                line.innerHTML = `<span class="highlight">> ${text}</span>`;
-            } else if (type === 'dim') {
-                line.innerHTML = `<span class="dim">> ${text}</span>`;
-            } else {
-                line.innerHTML = `<span class="dim">> </span>${text}`;
-            }
-            terminalOutput.appendChild(line);
-            terminalOutput.scrollTop = terminalOutput.scrollHeight;
-        }
-
-        terminalInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                const cmd = terminalInput.value.trim();
-                terminalInput.value = '';
-
-                if (cmd === '') return;
-
-                addOutput(`$ ${cmd}`, 'dim');
-
-                if (cmd === '/social') {
-                    addOutput('📦 GitHub: github.com/aghodemon or /thenyxonis', 'highlight');
-                    addOutput('💬 Discord: @nyxonis', 'highlight');
-                    addOutput('📧 Email: idemon1795@proton.me', 'highlight');
-                    addOutput('📱 Telegram: @nyxonis', 'highlight');
-                    addOutput('🐦 Twitter: @nyxonis', 'highlight');
-                    addOutput('🔗 LinkedIn: linkedin.com/in/nyxonis', 'highlight');
-                } else if (cmd === '/help') {
-                    addOutput('Available commands:', 'highlight');
-                    addOutput('/social   - show all social connections', 'normal');
-                    addOutput('/skills   - show tech stack', 'normal');
-                    addOutput('/projects - show recent projects', 'normal');
-                    addOutput('/rubika - show my rubika id', 'normal');
-                    addOutput('/clear    - clear terminal', 'normal');
-                    addOutput('/help     - show this help', 'normal');
-                } else if (cmd === '/skills') {
-                    addOutput('☕ Java  |  🟢 Node.js  |  🐍 Python', 'highlight');
-                    addOutput('🐳 Docker  |  ⛏️ Minecraft  |  🔌 Plugins', 'highlight');
-                    addOutput('🤖 Bots  |  ⚙️ Backend  |  🐧 Linux', 'highlight');
-                } else if (cmd === '/projects') {
-                    addOutput('📦 Minecraft Plugin Suite', 'highlight');
-                    addOutput('🤖 Multi-Platform Bot System', 'highlight');
-                    addOutput('🐳 Dockerized Backend Stack', 'highlight');
-                    addOutput('⚡ CLI Tools & Automation', 'highlight');
-                } else if (cmd === '/rubika') {
-                    addOutput('@Nyxonis', 'highlight');
-                } else if (cmd === '/clear') {
-                    terminalOutput.innerHTML = '';
-                    addOutput('Terminal cleared.', 'dim');
-                } else {
-                    addOutput(`Command not found: ${cmd}. Try /help`, 'dim');
-                }
-
-                terminalOutput.scrollTop = terminalOutput.scrollHeight;
-            }
-        });
-
-        document.querySelector('.terminal-wrap').addEventListener('click', () => {
-            terminalInput.focus();
-        });
-
-        terminalInput.focus();
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "TheNyxonis",
-            "url": "https://aghodemon.github.io/",
-            "image": "https://aghodemon.github.io/favicon.ico"
-        }
-    </script>
 </body>
 </html>

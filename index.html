@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-	<meta property="og:image" content="https://aghodemon.github.io/favicon.ico" />
+    <meta property="og:image" content="https://aghodemon.github.io/favicon.ico" />
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
     <meta name="twitter:image" content="https://aghodemon.github.io/favicon.ico" />
@@ -16,14 +16,14 @@
     <meta property="og:description" content="Full stack developer & DevOPS engineer. Check out my projects and tech stack." />
     <meta property="og:url" content="https://aghodemon.github.io" />
     <meta name="robots" content="index, follow" />
-	<meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Demon1795 | Senior DevOPS" />
     <meta name="twitter:description" content="Senior DevOPS engineer - Java, Node.js, Docker, Python" />
     <link rel="canonical" href="https://aghodemon.github.io" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
-	<style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -159,6 +159,17 @@
             letter-spacing: -0.3px;
         }
 
+        .profile-badge {
+            display: inline-block;
+            margin: 6px 0 4px;
+        }
+
+        .profile-badge img {
+            height: 20px;
+            width: auto;
+            border-radius: 4px;
+        }
+
         .profile-card .role-tag {
             display: inline-block;
             background: #1a222e;
@@ -214,32 +225,6 @@
             letter-spacing: 1.5px;
             color: #6a7a8a;
             margin-top: 2px;
-        }
-
-        .skills-compact {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            justify-content: center;
-        }
-
-        .skills-compact .skill-pill {
-            background: #141c28;
-            border: 1px solid #242c3a;
-            padding: 4px 14px;
-            border-radius: 30px;
-            font-size: 10px;
-            font-weight: 500;
-            color: #b0c0ce;
-            letter-spacing: 0.2px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .skills-compact .skill-pill .icon {
-            font-size: 14px;
-            line-height: 1;
         }
 
         .project-item {
@@ -422,41 +407,6 @@
             margin-bottom: 2px;
         }
 
-        .social-row {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-            grid-column: 1 / -1;
-            margin-top: 4px;
-        }
-
-        .social-badge {
-            background: #121822;
-            border: 1px solid #242c3a;
-            border-radius: 30px;
-            padding: 6px 18px;
-            font-size: 11px;
-            color: #b0c0ce;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 400;
-            transition: all 0.2s ease;
-            text-decoration: none;
-        }
-
-        .social-badge:hover {
-            border-color: #5a6a7a;
-            background: #1a222e;
-            color: #e4e8ee;
-        }
-
-        .social-badge .sicon {
-            font-size: 18px;
-            line-height: 1;
-        }
-
         .footer-note {
             text-align: center;
             color: #3a4a5a;
@@ -486,15 +436,6 @@
 
             .banner-img {
                 aspect-ratio: 16 / 5;
-            }
-
-            .social-row {
-                gap: 8px;
-            }
-
-            .social-badge {
-                padding: 5px 14px;
-                font-size: 10px;
             }
         }
 
@@ -528,17 +469,16 @@
                 flex-direction: column;
             }
         }
-		
-	</style>
+    </style>
 </head>
 <body>
 
     <div class="grid-layout">
-	
+
         <div class="banner-wrap">
             <img class="banner-img" src="https://placehold.co/1200x500/black/gray?text=TheNyxonis&font=raleway" alt="banner" />
         </div>
-		
+
         <div class="left-col">
 
             <div class="profile-card">
@@ -551,6 +491,9 @@
                     </div>
                 </div>
                 <h2>TheNyxonis</h2>
+                <div class="profile-badge">
+                    <img src="profilebadge.png" alt="badge" />
+                </div>
                 <span class="role-tag">Senior · DevOPS</span>
                 <div class="bio">
                     <em>Java · Node · Docker · Python</em><br />
@@ -560,23 +503,22 @@
 
             <div class="stat-grid">
                 <div class="stat-item">
-                <div class="number">12+</div>
-                <div class="label">projects</div>
+                    <div class="number">12+</div>
+                    <div class="label">projects</div>
                 </div>
                 <div class="stat-item">
-                <div class="number">7</div>
-                <div class="label">tech stack</div>
+                    <div class="number">7</div>
+                    <div class="label">tech stack</div>
                 </div>
                 <div class="stat-item">
-                <div class="number">8</div>
-                <div class="label">languages</div>
+                    <div class="number">8</div>
+                    <div class="label">languages</div>
                 </div>
                 <div class="stat-item">
-                <div class="number">∞</div>
-                <div class="label">curiosity</div>
+                    <div class="number">∞</div>
+                    <div class="label">curiosity</div>
                 </div>
             </div>
-
 
         </div>
 
@@ -599,7 +541,7 @@
                     <span>Node.js</span>
                     <span>Python</span>
                     <span>WebSocket</span>
-					<span>PHP</span>
+                    <span>PHP</span>
                 </div>
             </div>
 
@@ -718,7 +660,7 @@
                     addOutput('/social   - show all social connections', 'normal');
                     addOutput('/skills   - show tech stack', 'normal');
                     addOutput('/projects - show recent projects', 'normal');
-					addOutput('/rubika - show my rubika id', 'normal');
+                    addOutput('/rubika - show my rubika id', 'normal');
                     addOutput('/clear    - clear terminal', 'normal');
                     addOutput('/help     - show this help', 'normal');
                 } else if (cmd === '/skills') {
@@ -731,7 +673,7 @@
                     addOutput('🐳 Dockerized Backend Stack', 'highlight');
                     addOutput('⚡ CLI Tools & Automation', 'highlight');
                 } else if (cmd === '/rubika') {
-                    addOutput('@Nyxonis', 'highlight');				
+                    addOutput('@Nyxonis', 'highlight');
                 } else if (cmd === '/clear') {
                     terminalOutput.innerHTML = '';
                     addOutput('Terminal cleared.', 'dim');
@@ -748,16 +690,15 @@
         });
 
         terminalInput.focus();
-	</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "TheNyxonis",
-  "url": "https://aghodemon.github.io/",
-  "image": "https://aghodemon.github.io/favicon.ico"
-}
-</script>
-<!--V 2.0.6-->
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "TheNyxonis",
+            "url": "https://aghodemon.github.io/",
+            "image": "https://aghodemon.github.io/favicon.ico"
+        }
+    </script>
 </body>
 </html>

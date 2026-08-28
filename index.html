@@ -85,12 +85,7 @@
             width: 100%;
             max-width: 420px;
             padding: 32px 28px;
-            background: rgba(18, 24, 34, 0.55);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border-radius: 28px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -99,26 +94,39 @@
         .glass-container::before {
             content: '';
             position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: url('effect.png') center/cover no-repeat;
-            opacity: 0.12;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: url('profiledeco.png') center/cover no-repeat;
+            opacity: 0.35;
             z-index: 0;
             pointer-events: none;
-            border-radius: 28px;
-            filter: blur(2px);
+            border-radius: 32px;
+            filter: blur(1px);
+            animation: pulseBorder 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseBorder {
+            0% { opacity: 0.25; transform: scale(1); }
+            100% { opacity: 0.45; transform: scale(1.01); }
         }
 
         .glass-content {
             position: relative;
             z-index: 1;
+            background: rgba(18, 24, 34, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 24px;
+            padding: 28px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.04);
         }
 
         .profile-section {
             text-align: center;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
         .avatar-container {
@@ -205,7 +213,7 @@
         .divider {
             height: 1px;
             background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.06), transparent);
-            margin: 20px 0 24px;
+            margin: 18px 0 22px;
         }
 
         .social-grid {
@@ -263,17 +271,22 @@
             text-align: center;
             color: #3a4a5a;
             font-size: 9px;
-            padding-top: 22px;
+            padding-top: 20px;
             letter-spacing: 1.5px;
             font-weight: 300;
-            margin-top: 6px;
+            margin-top: 4px;
             border-top: 1px solid rgba(26, 34, 46, 0.4);
         }
 
         @media (max-width: 500px) {
             .glass-container {
-                padding: 24px 18px;
+                padding: 20px 14px;
                 border-radius: 20px;
+            }
+
+            .glass-content {
+                padding: 20px 16px;
+                border-radius: 18px;
             }
 
             .avatar-container {
@@ -319,7 +332,11 @@
 
         @media (max-width: 380px) {
             .glass-container {
-                padding: 18px 12px;
+                padding: 12px 8px;
+            }
+
+            .glass-content {
+                padding: 16px 12px;
             }
 
             .avatar-container {
@@ -429,7 +446,7 @@
             </div>
 
             <div class="footer-note">
-                TheNyxonis &middot; 2.0.8 &middot; 2026
+                TheNyxonis &middot; 2.0.6 &middot; 2026
             </div>
 
         </div>

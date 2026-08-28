@@ -105,22 +105,22 @@
         .glass-container::before {
             content: '';
             position: absolute;
-            top: -8px;
-            left: -8px;
-            right: -8px;
-            bottom: -8px;
-            background: url('profiledeco.png') center/contain no-repeat;
-            background-size: 105% 105%;
-            opacity: 0.45;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: url('profiledeco.png') center/cover no-repeat;
+            background-size: 100% 100%;
+            opacity: 1;
             z-index: -1;
             pointer-events: none;
-            border-radius: 28px;
-            animation: pulseBorder 5s ease-in-out infinite alternate;
+            border-radius: 24px;
+            animation: pulseBorder 4s ease-in-out infinite alternate;
         }
 
         @keyframes pulseBorder {
-            0% { opacity: 0.3; transform: scale(0.98); }
-            100% { opacity: 0.6; transform: scale(1.02); }
+            0% { opacity: 0.7; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.01); }
         }
 
         .glass-container::after {
@@ -145,14 +145,14 @@
 
         .avatar-container {
             position: relative;
-            width: 110px;
-            height: 110px;
+            width: 120px;
+            height: 120px;
             margin: 0 auto 14px;
         }
 
         .avatar-ring {
-            width: 110px;
-            height: 110px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             background: linear-gradient(135deg, #2a3444, #1a222e);
             padding: 4px;
@@ -171,14 +171,14 @@
 
         .avatar-glow {
             position: absolute;
-            top: -8px;
-            left: -8px;
-            width: 126px;
-            height: 126px;
+            top: -12px;
+            left: -12px;
+            width: 144px;
+            height: 144px;
             border-radius: 50%;
             pointer-events: none;
             z-index: 2;
-            opacity: 0.5;
+            opacity: 1;
             mix-blend-mode: screen;
         }
 
@@ -188,7 +188,7 @@
             display: block;
             object-fit: contain;
             border-radius: 50%;
-            opacity: 0.7;
+            opacity: 1;
         }
 
         .profile-name {
@@ -264,16 +264,16 @@
         }
 
         .social-item .social-icon {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .social-item .social-icon svg {
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
             fill: currentColor;
         }
 
@@ -312,28 +312,28 @@
             }
 
             .glass-container::before {
-                top: -6px;
-                left: -6px;
-                right: -6px;
-                bottom: -6px;
-                border-radius: 22px;
+                top: -2px;
+                left: -2px;
+                right: -2px;
+                bottom: -2px;
+                border-radius: 20px;
             }
 
             .avatar-container {
-                width: 90px;
-                height: 90px;
+                width: 100px;
+                height: 100px;
             }
 
             .avatar-ring {
-                width: 90px;
-                height: 90px;
+                width: 100px;
+                height: 100px;
             }
 
             .avatar-glow {
-                width: 106px;
-                height: 106px;
-                top: -8px;
-                left: -8px;
+                width: 124px;
+                height: 124px;
+                top: -12px;
+                left: -12px;
             }
 
             .profile-name {
@@ -350,13 +350,13 @@
             }
 
             .social-item .social-icon {
-                width: 24px;
-                height: 24px;
+                width: 26px;
+                height: 26px;
             }
 
             .social-item .social-icon svg {
-                width: 20px;
-                height: 20px;
+                width: 22px;
+                height: 22px;
             }
         }
 
@@ -368,28 +368,28 @@
             }
 
             .glass-container::before {
-                top: -4px;
-                left: -4px;
-                right: -4px;
-                bottom: -4px;
-                border-radius: 18px;
+                top: -2px;
+                left: -2px;
+                right: -2px;
+                bottom: -2px;
+                border-radius: 16px;
             }
 
             .avatar-container {
-                width: 76px;
-                height: 76px;
+                width: 80px;
+                height: 80px;
             }
 
             .avatar-ring {
-                width: 76px;
-                height: 76px;
+                width: 80px;
+                height: 80px;
             }
 
             .avatar-glow {
-                width: 92px;
-                height: 92px;
-                top: -8px;
-                left: -8px;
+                width: 104px;
+                height: 104px;
+                top: -12px;
+                left: -12px;
             }
 
             .profile-name {

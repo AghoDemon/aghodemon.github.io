@@ -325,31 +325,7 @@
     </style>
 </head>
 <body>
-    <audio id="bg-music" autoplay loop>
-  <source src="./thenyxonis.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-  const audio = document.getElementById('bg-music');
-  audio.volume = 0.6;
-  audio.loop = true;
-  audio.autoplay = true;
-
-  audio.play().catch(() => {
-    document.addEventListener('click', function playOnClick() {
-      audio.play();
-      document.removeEventListener('click', playOnClick);
-    }, { once: true });
-  });
-  
-  setInterval(() => {
-    if (audio.ended) {
-      audio.currentTime = 0;
-      audio.play().catch(() => {});
-    }
-  }, 500);
-</script>
-
+    
     <div class="glass-wrapper">
         <div class="glass-container">
 
@@ -430,7 +406,30 @@
                     <span class="social-label">Rubika</span>
                 </a>
             </div>
+<audio id="bg-music" autoplay loop>
+  <source src="./thenyxonis.mp3" type="audio/mpeg">
+</audio>
 
+<script>
+  const audio = document.getElementById('bg-music');
+  audio.volume = 0.6;
+  audio.loop = true;
+  audio.autoplay = true;
+
+  audio.play().catch(() => {
+    document.addEventListener('click', function playOnClick() {
+      audio.play();
+      document.removeEventListener('click', playOnClick);
+    }, { once: true });
+  });
+  
+  setInterval(() => {
+    if (audio.ended) {
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+    }
+  }, 500);
+</script>
             <div class="footer-note">
                 TheNyxonis &middot; 2.0.6 &middot; 2026
             </div>

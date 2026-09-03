@@ -66,14 +66,8 @@
                 radial-gradient(circle at 85% 20%, rgba(90, 60, 130, 0.25), transparent 45%),
                 radial-gradient(circle at 50% 100%, rgba(30, 50, 80, 0.4), transparent 55%),
                 linear-gradient(160deg, #0a0c12 0%, #10131c 45%, #0a0c12 100%);
-            animation: floatBg 30s ease-in-out infinite alternate;
             z-index: -1;
             pointer-events: none;
-        }
-
-        @keyframes floatBg {
-            0% { transform: scale(1) rotate(0deg); }
-            100% { transform: scale(1.12) rotate(2deg); }
         }
 
         ::selection {
@@ -127,12 +121,6 @@
             z-index: -1;
             pointer-events: none;
             border-radius: clamp(18px, 4.5vw, 28px);
-            animation: pulseBorder 4s ease-in-out infinite alternate;
-        }
-
-        @keyframes pulseBorder {
-            0% { opacity: 0.7; transform: scale(0.99); }
-            100% { opacity: 1; transform: scale(1.01); }
         }
 
         .glass-container::after {
@@ -195,12 +183,6 @@
             pointer-events: none;
             z-index: 2;
             opacity: 1;
-            animation: decoFloat 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes decoFloat {
-            0% { transform: translate(-50%, -50%) scale(0.98); }
-            100% { transform: translate(-50%, -50%) scale(1.03); }
         }
 
         .avatar-glow img {
